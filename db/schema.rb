@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2019_10_28_142644) do
   end
 
   create_table "quizzes", force: :cascade do |t|
-    t.string "genre"
+    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"

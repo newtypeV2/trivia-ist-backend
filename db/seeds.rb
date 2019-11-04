@@ -7,7 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 gian = User.create(username: 'gian', password: 'password')
 
-q_math = Quiz.find_or_create_by(genre: 'Sample Simple Math', user_id: gian.id)
+q_math = Quiz.find_or_create_by(title: 'Sample Simple Math', user_id: gian.id)
+q_history = Quiz.find_or_create_by(title: 'Simple Simple History', user_id: gian.id)
 
 question1 = Question.find_or_create_by(text_question: '1+1=_', answer: '2', quiz_id: q_math.id)
 question2 = Question.find_or_create_by(text_question: '4+1=_', answer: '5', quiz_id: q_math.id)
@@ -39,5 +40,25 @@ Choice.find_or_create_by(question_id: question5.id, text: '-4')
 Choice.find_or_create_by(question_id: question5.id, text: '5')
 Choice.find_or_create_by(question_id: question5.id, text: '1')
 Choice.find_or_create_by(question_id: question5.id, text: '4')
+
+h_question1 = Question.find_or_create_by(text_question: 'First President of USA', answer: 'George Washington', quiz_id: q_history.id)
+h_question2 = Question.find_or_create_by(text_question: 'First State of the USA', answer: 'Delaware', quiz_id: q_history.id)
+h_question3 = Question.find_or_create_by(text_question: 'Capital of the USA', answer: 'Washington, D.C.', quiz_id: q_history.id)
+
+Choice.find_or_create_by(question_id: h_question1.id, text: 'George W. Bush')
+Choice.find_or_create_by(question_id: h_question1.id, text: 'George Bush')
+Choice.find_or_create_by(question_id: h_question1.id, text: 'George Washington')
+Choice.find_or_create_by(question_id: h_question1.id, text: 'Barrack Obama')
+
+Choice.find_or_create_by(question_id: h_question2.id, text: 'Virginia')
+Choice.find_or_create_by(question_id: h_question2.id, text: 'North Carolina')
+Choice.find_or_create_by(question_id: h_question2.id, text: 'New York')
+Choice.find_or_create_by(question_id: h_question2.id, text: 'Delaware')
+
+Choice.find_or_create_by(question_id: h_question3.id, text: 'Washington, D.C.')
+Choice.find_or_create_by(question_id: h_question3.id, text: 'Baltimore, MD')
+Choice.find_or_create_by(question_id: h_question3.id, text: 'Alexandria, VA')
+Choice.find_or_create_by(question_id: h_question3.id, text: 'Wilmington,DE')
+
 
 puts 'SEED DONE!'

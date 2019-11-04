@@ -3,17 +3,7 @@ class UserSerializer
   
 
   attributes :id, :username
-  attribute :quiz
 
-  def quiz
-    object.quizzes.map do |quiz|
-      {id: quiz.id, genre: quiz.genre}
-    end
-  end
-  
-
-
-
-
+  has_many :quizzes
 
 end
