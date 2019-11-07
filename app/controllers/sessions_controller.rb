@@ -1,15 +1,21 @@
 class SessionsController < ApplicationController
 
+    def login
+        byebug
+        # user = User.find_by(username: params['username'])
+    end
+
     def show
         user = User.find(params[:id])
         # render json: user.to_json(default_serial)
-        json_serial = UserSerializer.new(user).serialized_json
+        json_serial = UserSerializer.new(user).as_json
         render json: json_serial
     end
 
-    def test
-        quiz = Quiz.find(params[:id])
-        render json: QuizSerializer.new(quiz).serialized_json
+    def testing
+        test_subj = Question.find(params[:id])
+        render json: QuestionSerializer.new(test_subj).as_json
+        
     end
 
 private

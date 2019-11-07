@@ -1,8 +1,7 @@
-class QuestionSerializer
-  include FastJsonapi::ObjectSerializer
-  attributes :answer, :text_question, :quiz_id
-
-  belongs_to :quiz
+class QuestionSerializer < ActiveModel::Serializer
   has_many :choices
-  
+  belongs_to :quiz
+
+  attributes :id, :answer, :text_question
+
 end
